@@ -1,10 +1,4 @@
-echo "copying running files"
-cp -r /working/temp/* /data/
+cp -r /working/server.jar /data/server.jar
 chmod -R 777 /data
-echo "completed copying running files"
-
-echo "starting application"
 cd /data
-ls -l
-./start.sh
-echo "completed starting application"
+java -Xmx4G -Xms2G -jar server.jar nogui
