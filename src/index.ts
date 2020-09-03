@@ -59,16 +59,6 @@ export default class MMS {
   }
 
   /**
-   * Destory the working directory.
-   */
-  public destoryWorkingDir(): void {
-    if (this.workingDirectoryExists) {
-      shell.rm('-rf', WORKING_DIRECTORY);
-      this.workingDirectoryExists = false;
-    }
-  }
-
-  /**
    * Generate the scripts required to start the server.
    */
   public generateScripts(): void {
@@ -77,7 +67,7 @@ export default class MMS {
     const memoryText = `-Xmx${max} -Xms${min}`;
     const serverStartPath = `${WORKING_DIRECTORY}/${SERVER_START_FILE_NAME}`;
 
-    shell.echo(`java ${memoryText} ${SERVER_JAR_FILE_NAME} nogui`).to(serverStartPath);
+    shell.echo(`java ${memoryText} -jar ${SERVER_JAR_FILE_NAME} nogui`).to(serverStartPath);
   }
 
   /**
@@ -109,6 +99,5 @@ export default class MMS {
     this.generateScripts();
     this.fetchServerJar();
     this.copyFiles();
-    this.destoryWorkingDir();
   }
 }

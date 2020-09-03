@@ -1,17 +1,13 @@
-FROM openjdk:16-slim
+FROM openjdk:14.0.2-slim-buster
 
 LABEL maintainer "alboe"
 
-WORKDIR /data
+COPY . /working
 
-COPY start.sh /start.sh
+RUN /working/initialize.sh
 
 EXPOSE 25565 25565
 
-RUN start.sh
-
-COPY config.json /temp/config.json
-
 VOLUME [ "/data" ]
 
-CMD /data/start.sh
+CMD /working/start.sh
