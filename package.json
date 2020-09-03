@@ -4,8 +4,8 @@
   "description": "Minecraft Managed Server",
   "main": "index.js",
   "scripts": {
-    "build": "npm run clean:build && npm run transpile && npm run compile",
-    "clean": "rimraf ./build ./dist ./docs ./temp",
+    "build": "npm run clean && npm run transpile && npm run compile",
+    "clean": "rimraf ./build ./dist ./temp",
     "clean:build": "rimraf ./build ./dist",
     "clean:compile": "rimraf ./build",
     "clean:npm": "rimraf ./node_modules",

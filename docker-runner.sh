@@ -1,0 +1,1 @@
+docker run -v /data:/data -p 25565:25565 --name mcs minecraft-test
